@@ -28,7 +28,7 @@ echo'Analisis de las Multas por Radares <mark>(1.5 Puntos)<br><br>
           $contadormultastotales=$contadormultastotales+ 1;
         }
       } 
-      echo' <td>'.$contadormultastotales.'</td>';
+      echo' <td>'.$contadormultastotales.'</td>'; //saco la linea en la tabla con las multas de cada radar
     }
 
     echo '</tr>';
