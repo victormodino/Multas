@@ -18,11 +18,11 @@ if (isset($_REQUEST['pagar']))
       
   } 
   
-  
+  /*
   echo "<br";
   echo "Multa con fecha: ".$fecha." y matricula: ".$matricula." ha sido pagada con exito.";
   echo "<br";
-  
+  */
 }
 
 echo' 
