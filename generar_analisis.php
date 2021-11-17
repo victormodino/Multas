@@ -16,10 +16,10 @@ echo'Analisis de las Multas por Radares <mark>(1.5 Puntos)<br><br>
 
   echo '<tbody>';
     echo '<tr>';
-      echo' <td>'.$clave.'</td>';
-      echo' <td>'.$clave.'</td>';
-      echo' <td>'.$clave.'</td>';
-      echo' <td>'.$clave.'</td>';
+      echo' <td>'.$valor['radar'].'</td>';
+      echo' <td>'.$valor['radar'].'</td>';
+      echo' <td>'.$valor['radar'].'</td>';
+      echo' <td>'.$valor['radar'].'</td>';
     echo '</tr>';
     
   echo '</tfoot>';
