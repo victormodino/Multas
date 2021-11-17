@@ -18,17 +18,17 @@ if (isset($_REQUEST['pagar']))
       
   } 
   
-  /*
+  
   echo "<br";
   echo "Multa con fecha: ".$fecha." y matricula: ".$matricula." ha sido pagada con exito.";
   echo "<br";
-  */
+  
 }
 
 echo' 
 Introduce los datos de la Multa a Pagar <mark>(1.5 Puntos)<br><br>
                          
-<div   class="postcontent"><form action="" method="post">
+<div   class="postcontent"><form action="pagar.php" method="post">
 <table align="center" class="content-layout">
   
   
