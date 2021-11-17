@@ -1,10 +1,42 @@
 <?php
-
+session_start();
 include 'head.php';
+
+if(isset($_REQUEST['borrar'])) //si he pulsado Calcular
+{
+  $Matricula=$_REQUEST['matricula'];
+  //numero elementos en el array antes de borrar
+  $contadormultas_antes=count($_SESSION['multas']);
+  foreach($_SESSION['multas'] as $clave=>$valor)
+    {     
+    if($valor==$Matricula)
+    unset($_SESSION['multas'][$Matricula]);
+    }
+
+  $contadormultas_despues=count($_SESSION['multas']);
+  if($contadormultas_antes==$contadormultas_despues)
+  {
+      echo '<script>alert("No está esa multa registrada");</script>';
+  }
+  else
+  {
+    foreach($_SESSION['multas'] as $clave=>$valor)
+    {     
+    if($valor==$Matricula)
+    unset($_SESSION['multas'][$Matricula]);
+    }
+      echo '<script language="javascript">';
+      echo 'alert("Multa borrada con exito");';
+      echo '</script>';
+  }
+  
+}
+
+
 echo' 
 Introduce los datos de la Multa a Borrar<mark>(1.5 Puntos)<br><br>
                          
-<div   class="postcontent"><form action="" method="post">
+<div   class="postcontent"><form action="borrar.php" method="post">
 <table align="center" class="content-layout">
   
   

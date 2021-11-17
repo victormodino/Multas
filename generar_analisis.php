@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include 'head.php';
 echo'Analisis de las Multas por Radares <mark>(1.5 Puntos)<br><br>
 <table>
@@ -10,18 +10,22 @@ echo'Analisis de las Multas por Radares <mark>(1.5 Puntos)<br><br>
       <th>Radar 3</th>
       <th>Radar 4</th>
     </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>10</td>
-      <td>20</td>
-      <td>15</td>
-      <td>67</td>
-    </tr>
-    
-  </tfoot>
-</table>
+  </thead>';
+  foreach($_SESSION['multas']as $clave=>$valor)
+{
 
-';
+  echo '<tbody>';
+    echo '<tr>';
+      echo' <td>'.$clave.'</td>';
+      echo' <td>'.$clave.'</td>';
+      echo' <td>'.$clave.'</td>';
+      echo' <td>'.$clave.'</td>';
+    echo '</tr>';
+    
+  echo '</tfoot>';
+}
+echo '</table>';
+
+
 include 'pie.php';
 

@@ -5,7 +5,7 @@ session_start();
 
 echo'<img src = "images/multa.jpg" width = "820" height = "350" alt = "multas-trafico"/>';
 
-$multas = array(
+$multas=array(
 		array(
 			'matricula' => '1111BBB',
 			'radar' => 1,
@@ -26,7 +26,7 @@ $multas = array(
             'pagada'=> 'NO'
 
 		),
-                array(
+        array(
 			'matricula' => '3333DDD',
 			'radar' => 3,
 			'limite' => 90,
@@ -36,7 +36,7 @@ $multas = array(
             'pagada'=> 'NO'
 
 		),
-                array(
+        array(
 			'matricula' => '4444FFF',
 			'radar' => 4,
 			'limite' => 100,
@@ -45,12 +45,16 @@ $multas = array(
             'fecha_hora' => '27-09-2021T19:29',
             'pagada'=> 'NO'
 
-		),
-                
+		),       
     );
+$multas=$_SESSION['multas'];	
+
 //array radares con su identificacion y limite maximo permitido de velocidad
 $radares=array("Radar 1"=>30,"Radar 2"=>50,"Radar 3"=>90,"Radar 4"=>100);
 
+echo'<pre>';
+var_dump($_SESSION['multas']);
+echo'</pre>';
 
 include 'pie.php';											
                            
