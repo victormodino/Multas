@@ -28,7 +28,6 @@ echo'Analisis de las Multas por Radares <mark>(1.5 Puntos)<br><br>
           $contadormultastotales=$contadormultastotales+ 1;
         }
       } 
-
       echo' <td>'.$contadormultastotales.'</td>';
     }
 
