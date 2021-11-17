@@ -8,26 +8,23 @@ if(isset($_REQUEST['buscar']))
 $matricula=$_REQUEST['matricula'];
 $buscar=false;//creamos una variable igualada a false para que si luego esta en el array sea true, y poner un if
 
-foreach($_SESSION['multas'] as $clave=>$valor)
-    {    
-      foreach($valor as $vector=>$indice) 
-      if($vector==$matricula)
-        {
-        echo "La multa que has puesto (".$vector.") ";
-        $buscar=true;
-        }  
-        
-    }
-if($buscar==false)
+foreach($_SESSION['multas'] as $clave)
+  {
+  if($clave['matricula'] == $matricula)
     {
-        echo "No esta esa esa multa en el registro";
-    }           
+    echo "<br>";
+    echo "Le has puesto una multa a: (".$matricula.") ";
+    echo "<br>";
+    $buscar=true;
+    }
+  }
+
+  if($buscar==false)
+    {    
+      echo "No está la multa en el Registro de multas";
+    }
 }
-/*
-echo'<pre>';
-var_dump($_SESSION['multas']);
-echo'</pre>';
-*/
+
 echo' 
 Introduce la Matricula de la Multa/s <mark> NO PAGADAS</mark> a Buscar<mark>(1 Puntos)<br><br>
                          
@@ -50,5 +47,12 @@ Introduce la Matricula de la Multa/s <mark> NO PAGADAS</mark> a Buscar<mark>(1 P
 </strong></div></td></tr>
 </table>
 </form>
-</div>';        
+</div>';   
+
+/*
+echo'<pre>';
+var_dump($_SESSION['multas']);
+echo'</pre>';
+*/
+
 include 'pie.php';

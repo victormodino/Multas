@@ -1,11 +1,28 @@
 <?php
-
+session_start();
 include 'head.php';
 if (isset($_REQUEST['pagar']))
 {
   $fecha= $_REQUEST['fecha_hora'];
-  echo $fecha;
- 
+  
+
+  //esto es nuevo de esta tarde
+  $matricula=$_REQUEST['matricula'];
+  foreach($_SESSION['multas'] as $clave=>$valor) 
+  {
+    if($valor['matricula']==$matricula) 
+      {
+        $_SESSION['multas'][$clave]['pagada'] ='SI';
+        
+      }     
+      
+  } 
+  
+  /*
+  echo "<br";
+  echo "Multa con fecha: ".$fecha." y matricula: ".$matricula." ha sido pagada con exito.";
+  echo "<br";
+  */
 }
 
 echo' 
@@ -39,5 +56,10 @@ Introduce los datos de la Multa a Pagar <mark>(1.5 Puntos)<br><br>
 </tr>
 </table>
 </form>
-</div>';              
+</div>';  
+
+echo'<pre>';
+var_dump($_SESSION['multas']);
+echo'</pre>';
+
 include 'pie.php';

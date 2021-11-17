@@ -47,10 +47,11 @@ $multas=array(
 
 		),       
     );
-$multas=$_SESSION['multas'];	
+$multas=$_SESSION['multas'];	//esto estaba alreves
 
 //array radares con su identificacion y limite maximo permitido de velocidad
 $radares=array("Radar 1"=>30,"Radar 2"=>50,"Radar 3"=>90,"Radar 4"=>100);
+$radares=$_SESSION['radares'];  //estaba alreves
 
 echo'<pre>';
 var_dump($_SESSION['multas']);

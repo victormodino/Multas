@@ -6,27 +6,48 @@ include 'head.php';
 if(isset($_REQUEST['insertar'])) //si he pulsado pillado por el radar
 {
   $Matricula=$_REQUEST['matricula'];
-  $Radar=$_REQUEST['identificador'];
+  $Limite=$_REQUEST['identificador'];
   $Velocidad=$_REQUEST['velocidad'];
   $Fecha=$_REQUEST['fecha_hora'];
 
-
+  //sacar el nombre del radar
+  $NombreRadar =0; //esto tenia yo un if pero asi he pensado que mejor
+  switch ($Limite) {
+    case '30':
+      $NombreRadar = 1;
+      break;
+    case '50':
+      $NombreRadar = 2;
+      break;
+      case '90':
+      $NombreRadar = 3;
+      break;
+      case '100':
+      $NombreRadar = 4;
+      break;
+  }
   
   $Cuantia=0;
-  $Cuantia=(($Velocidad-$Radar)*10)+50;
+  $Cuantia=(($Velocidad-$Limite)*10)+50;
 
   $Pagado="NO";//porque aun no esta pagado
   
-  //inserto en el array
-  $_SESSION['multas'][]=array($Matricula,1,$Radar,$Velocidad,$Cuantia,$Fecha,$Pagado);
-  
-echo'<pre>';
-var_dump($_SESSION['multas']);
-echo'</pre>';
-  
+  //inserto en el array, ( esto lo estaba metiendo mal sin los ''=>)
+  $_SESSION['multas'][]=array(
+      'matricula' => $Matricula,
+      'radar' => $NombreRadar,
+      'limite' => $Limite,
+      'velocidad' => $Velocidad,
+      'cuantia'=>$Cuantia,
+      'fecha_hora' => $Fecha,
+      'pagada'=> $Pagado);
+    
+}
+
   
  
-}
+ 
+
 
   
 
@@ -84,5 +105,8 @@ echo'Introduce los siguientes datos de la Multa<mark>(2 Puntos)<br><br>
                     </table>
         </form>';
 
-
+echo'<pre>';
+var_dump($_SESSION['multas']);
+echo'</pre>'; 
+//para ver que funciona y lo añade
 include 'pie.php';

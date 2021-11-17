@@ -2,16 +2,20 @@
 session_start();
 include 'head.php';
 
-if(isset($_REQUEST['borrar'])) //si he pulsado Calcular
+if(isset($_REQUEST['borrar'])) //si he pulsado borrar
 {
   $Matricula=$_REQUEST['matricula'];
   //numero elementos en el array antes de borrar
   $contadormultas_antes=count($_SESSION['multas']);
+  
   foreach($_SESSION['multas'] as $clave=>$valor)
     {     
-    if($valor==$Matricula)
-    unset($_SESSION['multas'][$Matricula]);
+    if($valor['matricula']==$Matricula)
+      {
+      unset($_SESSION['multas'][$clave]);
+      }
     }
+  
 
   $contadormultas_despues=count($_SESSION['multas']);
   if($contadormultas_antes==$contadormultas_despues)

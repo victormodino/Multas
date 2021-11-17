@@ -11,21 +11,30 @@ echo'Analisis de las Multas por Radares <mark>(1.5 Puntos)<br><br>
       <th>Radar 4</th>
     </tr>
   </thead>';
-  foreach($_SESSION['multas']as $clave=>$valor)
-{
+ 
+ echo '<tbody>';
+   echo '<tr>';
 
-  echo '<tbody>';
-    echo '<tr>';
-      echo' <td>'.$valor['radar'].'</td>';
-      echo' <td>'.$valor['radar'].'</td>';
-      echo' <td>'.$valor['radar'].'</td>';
-      echo' <td>'.$valor['radar'].'</td>';
+    $contadormultas=0;
+    for($i=1; $i<=count($_SESSION['radares']); $i++) 
+    { 
+      $contadormultastotales=0;
+  
+      foreach($_SESSION['multas'] as $valor) 
+      {
+        if($valor['radar']==$i) 
+        {
+          $contadormultas++;
+          $contadormultastotales=$contadormultastotales+ 1;
+        }
+      } 
+
+      echo' <td>'.$contadormultastotales.'</td>';
+    }
+
     echo '</tr>';
-    
-  echo '</tfoot>';
-}
+  echo '</tbody>';
 echo '</table>';
-
 
 include 'pie.php';
 
