@@ -12,6 +12,7 @@ echo'Analisis de las Multas por Radares <mark>(1.5 Puntos)<br><br>
     </tr>
   </thead>';
  
+  
  echo '<tbody>';
    echo '<tr>';
 
